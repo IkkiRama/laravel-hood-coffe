@@ -7,6 +7,8 @@
 
   <title>@yield('title')</title>
 
+  @yield('link')
+
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{asset('admin/plugins/fontawesome-free/css/all.min.css')}}">
   <!-- overlayScrollbars -->
@@ -189,8 +191,8 @@
                     </li>
                 </ul>
             </li>
-            
-            
+
+
             <li class="nav-item has-treeview">
                 <a href="{{url('/admin/artikel')}}" class="nav-link">
                     <i class="nav-icon fa fa-pen"></i>
@@ -218,7 +220,7 @@
             <li class="nav-header">KEUANGAN</li>
 
             <li class="nav-item has-treeview">
-                <a href="{{url('/admin/produk')}}" class="nav-link">
+                <a href="{{url('/admin/pembelian')}}" class="nav-link">
                 <i class="nav-icon fas fa-credit-card"></i>
                 <p>
                     Pembelian

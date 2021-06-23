@@ -9,7 +9,7 @@
                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#staticBackdrop">Tambah Kategori</button>
 
                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#TambahKategoriDalamArtikel">Tambah Kategori Dalam Artikel</button>
-                    
+
                     <table class="table table-bordered table-hover table-striped mt-3">
                         <thead class="thead-dark">
                             <tr>
@@ -24,11 +24,11 @@
                             @foreach($kategoriartikel as $value)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                
+
                                 <td><a href="{{url("admin/kategori-artikel/$value->id")}}">{{$value->nama}}</a></td>
 
                                 <td><a href="{{url("admin/kategori-artikel/$value->id")}}">{{$value->artikel->count()}}</a></td>
-                                
+
                                 <td>
                                     <a href="" class="btn btn-danger btn-sm my-1 hapusKategoriArtikel" kategoriartikel-id="{{$value->id}}"><i class="fa fa-trash"></i></a>
                                 </td>
@@ -60,7 +60,7 @@
                     <div class="form-group">
                         <label for="nama">Nama</label>
                         <input type="text" id="nama" name="nama" class="form-control @error('nama') is-invalid @enderror" value="{{old('nama')}}">
-                        
+
                         @error('nama') <div class="invalid-feedback"> {{$message}} </div> @enderror
                     </div>
 
@@ -127,6 +127,10 @@
     <script>
          @if(Session::has('sukses'))
             swal("Sukses!", "{{Session::get('sukses')}}", "success");
+        @endif
+
+        @if(Session::has('gagal'))
+            swal("Gagal!", "{{Session::get('gagal')}}", "error");
         @endif
 
         $('.hapusKategoriArtikel').click(function(){

@@ -7,16 +7,18 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use \Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Model;
 
-class Produk extends Model
+class Pembelian extends Model
 {
     use HasFactory;
-    protected $table = 'produk';
-    protected $fillable = ['kategori_id', 'nama_produk', 'harga_produk', 'berat_produk', 'stok_produk', 'foto_produk', 'deskripsi_produk'];
+    protected $table = "pembelian";
+    protected $fillable = ['pelanggan_id', 'alamat_pengiriman', 'nama_kota', 'tarif', 'total_pembelian', 'resi_pengiriman', 'status_pembelian'];
 
-    public function kategori(): BelongsTo
+    public function pelanggan(): BelongsTo
     {
-        return $this->belongsTo(Kategori::class);
+        return $this->belongsTo(Pelanggan::class);
     }
+
+
 
     public function pembelianProduk(): HasMany
     {

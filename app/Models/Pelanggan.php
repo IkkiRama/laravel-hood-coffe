@@ -17,8 +17,13 @@ class Pelanggan extends Model
         return $this->belongsTo(Agama::class);
     }
 
-     public function jenis_kelamin(): BelongsTo
+    public function jenis_kelamin(): BelongsTo
     {
         return $this->belongsTo(Jenis_kelamin::class);
+    }
+
+    public function pembelian()
+    {
+        return $this->hasMany(Pembelian::class);
     }
 }

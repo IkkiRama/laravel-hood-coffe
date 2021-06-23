@@ -7,6 +7,7 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\KategoriartikelController;
+use App\Http\Controllers\PembelianController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,5 +58,18 @@ Route::get('/admin/artikel/delete/{artikel}', [ArtikelController::class, 'destro
 Route::get('/admin/kategori-artikel', [KategoriartikelController::class, 'index']);
 Route::post('/admin/kategori-artikel', [KategoriartikelController::class, 'store']);
 Route::post('/admin/kategori-artikel/tambah', [KategoriartikelController::class, 'create']);
-Route::get('/admin/kategori-artikel/delete/{kategoriartikel}', [KategoriartikelController::class, 'destroy']);
+
 Route::get('/admin/kategori-artikel/{kategoriartikel}', [KategoriartikelController::class, 'show']);
+
+Route::get('/admin/kategori-artikel/delete/{kategoriartikel}', [KategoriartikelController::class, 'destroy']);
+
+Route::get('/admin/kategori-artikel/deleteArtikel/{artikel}', [KategoriartikelController::class, 'delete']);
+
+
+
+
+
+// Pembelian
+Route::get('/admin/pembelian', [PembelianController::class, 'index']);
+Route::get('/admin/pembelian/detail/{pembelian}', [PembelianController::class, 'show']);
+Route::get('/admin/pembelian/lihat pembayaran/{pembelian}', [PembelianController::class, 'lihatPembayaran']);

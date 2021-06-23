@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                
+
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6 my-2">
@@ -46,6 +46,7 @@
                                 <th>No</th>
                                 <th>Foto</th>
                                 <th>Nama</th>
+                                <th>Harga</th>
                                 <th>Stok</th>
                                 <th>Aksi</th>
                             </tr>
@@ -59,6 +60,7 @@
                                     <img src="{{asset("img/$value->foto_produk")}}" width="80" height="80">
                                 </td>
                                 <td>{{$value->nama_produk}}</td>
+                                <td>Rp {{number_format($value->harga_produk)}}</td>
                                 <td>{{$value->stok_produk}}</td>
                                 <td>
 

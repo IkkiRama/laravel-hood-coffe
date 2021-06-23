@@ -22,14 +22,14 @@
                             @foreach($kategoriartikel->artikel as $value)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                
+
                                 <td>
                                     <img src="{{asset("admin/img_artikel/$value->foto")}}" width="100" height="100">
                                 </td>
                                 <td>{{$value->title}}</td>
                                 <td>{{$value->user->name}}</td>
                                 <td>
-                                    <a href="" class="btn btn-danger btn-sm my-1 hapusKategoriArtikel" kategoriartikel-id="{{$value->id}}"><i class="fa fa-trash"></i></a>
+                                    <a href="" class="btn btn-danger btn-sm my-1 hapusArtikelDariKategori" kategoriartikel-id="{{$value->id}}"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                             @endforeach
@@ -39,4 +39,24 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+    <script>
+        $('.hapusArtikelDariKategori').click(function(){
+            let kategori_artikel_id = $(this).attr('kategoriartikel-id');
+            swal({
+                title: "Yakin?",
+                text: "Anda Akan Menghapus Data Ini ??",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                window.location = "/admin/kategori-artikel/deleteArtikel/"+kategori_artikel_id
+            }
+            });
+        });
+    </script>
 @endsection

@@ -21,15 +21,20 @@ class KategoriartikelController extends Controller
         return view('admin.kategori-artikel.profil', compact(['kategoriartikel']));
     }
 
-   
-   
+
+
     public function create(Request $request)
     {
+
+        // dd($request);
         $request->validate([
             'artikel_id' =>'required',
             'kategoriartikel_id' =>'required'
         ]);
 
+        // if (Artikel_kategoriartikel::has($request->artikel_id)) {
+        //     return redirect('/admin/kategori-artikel')->with('gagal', 'Data Sudah Ada Di Kategori Tersebut!');
+        // }
 
         Artikel_kategoriartikel::create([
             'artikel_id' => $request->artikel_id,
@@ -60,6 +65,12 @@ class KategoriartikelController extends Controller
     public function destroy(Kategoriartikel $kategoriartikel)
     {
         Kategoriartikel::destroy($kategoriartikel->id);
+        return redirect('/admin/kategori-artikel')->with('sukses', 'Data Berhasil Dihapus');
+    }
+
+    public function delete(Artikel $artikel)
+    {
+        Artikel_kategoriartikel::where('artikel_id', $artikel->id)->delete();
         return redirect('/admin/kategori-artikel')->with('sukses', 'Data Berhasil Dihapus');
     }
 }

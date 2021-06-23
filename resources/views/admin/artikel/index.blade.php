@@ -1,5 +1,17 @@
 @extends('layout.admin')
 @section('title', 'Artikel | Hood Coffe Shop')
+@section('link')
+    <style>
+        .tambahKategori{
+            width:30px;
+            height:30px;
+            border-radius:10px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+    </style>
+@endsection
 @section('judul_content', 'Daftar Artikel')
 @section('content')
     <div class="row">
@@ -34,7 +46,7 @@
                                 <td>
                                     <a href="" class="btn btn-warning btn-sm my-2"><i class="fa fa-pen"></i></a>
 
-                                    
+
                                     <a href="" class="btn btn-danger btn-sm my-2 hapusArtikel" artikel-id="{{$value->id}}"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
@@ -46,7 +58,7 @@
         </div>
     </div>
 
-    
+
     {{-- modal tambah --}}
     <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
@@ -64,35 +76,35 @@
                     <div class="form-group">
                         <label for="title">Judul</label>
                         <input type="text" id="title" name="title" class="form-control @error('title') is-invalid @enderror" value="{{old('title')}}">
-                        
+
                         @error('title') <div class="invalid-feedback"> {{$message}} </div> @enderror
                     </div>
 
                     <div class="form-group">
                         <label for="slug_title">Slug Judul</label>
                         <input type="text" id="slug_title" name="slug_title" class="form-control @error('slug_title') is-invalid @enderror" value="{{old('slug_title')}}">
-                        
+
                         @error('slug_title') <div class="invalid-feedback"> {{$message}} </div> @enderror
                     </div>
 
                      <div class="form-group">
                         <label for="foto">Foto</label>
                         <input type="file" id="foto" name="foto" class="form-control @error('foto') is-invalid @enderror" value="{{old('foto')}}">
-                        
+
                         @error('foto') <div class="invalid-feedback"> {{$message}} </div> @enderror
                     </div>
 
                     <div class="form-group">
                         <label for="slug_content">Slug Content</label>
                         <textarea name="slug_content" id="slug_content" cols="20" rows="5" class="form-control @error('slug_content') is-invalid @enderror">{{old('slug_content')}}</textarea>
-                        
+
                         @error('slug_content') <div class="invalid-feedback"> {{$message}} </div> @enderror
                     </div>
 
                     <div class="form-group">
                         <label for="content">Content</label>
                         <textarea name="content" id="content" cols="40" rows="15" class="form-control @error('content') is-invalid @enderror">{{old('content')}}</textarea>
-                        
+
                         @error('content') <div class="invalid-feedback"> {{$message}} </div> @enderror
                     </div>
 
