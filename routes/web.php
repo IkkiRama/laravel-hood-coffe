@@ -8,6 +8,7 @@ use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\KategoriartikelController;
 use App\Http\Controllers\PembelianController;
+use App\Http\Controllers\LaporanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,30 @@ use App\Http\Controllers\PembelianController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// frontend
+Route::get('/', [FrontendController::class, 'index']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
@@ -73,3 +98,12 @@ Route::get('/admin/kategori-artikel/deleteArtikel/{artikel}', [KategoriartikelCo
 Route::get('/admin/pembelian', [PembelianController::class, 'index']);
 Route::get('/admin/pembelian/detail/{pembelian}', [PembelianController::class, 'show']);
 Route::get('/admin/pembelian/lihat pembayaran/{pembelian}', [PembelianController::class, 'lihatPembayaran']);
+
+
+
+
+
+
+// laporan pembelian
+Route::get('/admin/laporan', [LaporanController::class, 'index']);
+Route::post('/admin/laporan', [LaporanController::class, 'ambilData']);

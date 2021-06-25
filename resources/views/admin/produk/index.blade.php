@@ -169,7 +169,7 @@
 
 @section('script')
     <script>
-         @if(Session::has('sukses'))
+        @if(Session::has('sukses'))
             swal("Sukses!", "{{Session::get('sukses')}}", "success");
         @endif
 

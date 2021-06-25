@@ -229,19 +229,10 @@
             </li>
 
             <li class="nav-item has-treeview">
-                <a href="{{url('/admin/produk')}}" class="nav-link">
+                <a href="{{url('/admin/laporan')}}" class="nav-link">
                 <i class="nav-icon fas fa-file-invoice"></i>
                 <p>
                     Laporan Pembelian
-                </p>
-                </a>
-            </li>
-
-            <li class="nav-item has-treeview">
-                <a href="{{url('/admin/produk')}}" class="nav-link">
-                <i class="nav-icon fas fa-file-invoice-dollar"></i>
-                <p>
-                    Laporan Keuangan
                 </p>
                 </a>
             </li>
